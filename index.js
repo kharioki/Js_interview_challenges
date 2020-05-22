@@ -43,13 +43,26 @@ function reverseString(str) {
 // Return true if palindrome
 // e.g isPalindrome('racecar') === true, isPalindrome('hello') === false
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  // reverse string then compare reversed string and initial string
+  const reversedStr = str.split('').reduce((acc, char) => char + acc, '');
+  return reversedStr === str;
+}
 
 //! CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // e.g reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  // convert integer to string first then reverse
+  // to make sure this works even for negative numbers we multiply by Math.sign(int)
+  const revString = int
+    .toString()
+    .split('')
+    .reverse()
+    .join('');
+  return parseInt(revString) * Math.sign(int);
+}
 
 //! CHALLENGE 4: CAPITALIZE LETTERS
 // Return a string with the first letter of every word capitalized
@@ -70,6 +83,6 @@ function maxCharacter(str) {}
 function fizzBuzz() {}
 
 // Call Function
-const output = reverseString('kharioki');
+const output = reverseInt(-4567);
 
 console.log(output);
