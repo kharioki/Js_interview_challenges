@@ -96,7 +96,31 @@ function capitalizeLetters(str) {
 // Return the character that is most common in a string
 // e.g. maxCharacter('javascript') == 'a'
 
-function maxCharacter(str) {}
+function maxCharacter(str) {
+  const charObj = {};
+  let maxNum = 0;
+  let maxChar = '';
+
+  str.split('').forEach(char => {
+    // loop through the char array
+    if (charObj[char]) {
+      // if char already exist in charObj, increment
+      charObj[char]++;
+    } else {
+      // else set value as 1
+      charObj[char] = 1;
+    }
+  });
+
+  for (let char in charObj) {
+    if (charObj[char] > maxNum) {
+      maxNum = charObj[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
+}
 
 //! CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100.
@@ -105,6 +129,6 @@ function maxCharacter(str) {}
 function fizzBuzz() {}
 
 // Call Function
-const output = capitalizeLetters('i love javascript');
+const output = maxCharacter('fizzbuzz');
 
 console.log(output);
