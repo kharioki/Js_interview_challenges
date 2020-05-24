@@ -157,8 +157,13 @@ function longestWord(sen) {
   const longestWordArr = sorted.filter(
     word => word.length === sorted[0].length
   );
-  return longestWordArr;
+  // return longestWordArr;
   //? SOLUTION 3 - Only return an array if multiple words, otherwise return a string
+  if (longestWordArr.length > 1) {
+    return longestWordArr;
+  } else {
+    return longestWordArr[0];
+  }
 }
 
 //! CHALLENGE 8: ARRAY CHUNKING
@@ -189,6 +194,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord('Hello, there, my name is Brad');
+const output = longestWord('Helloo, there, my name is Brad');
 
 console.log(output);
