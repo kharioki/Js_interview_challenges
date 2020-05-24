@@ -145,9 +145,16 @@ function fizzBuzz() {
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
 function longestWord(sen) {
-  // SOLUTION 1 - Return a single longest word
-  // SOLUTION 2 - Return an array and include multiple words if they have the same length
-  // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
+  //? SOLUTION 1 - Return a single longest word
+  // strip punctuation and create filtered array
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  // sort by length
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+  // return longest word
+  return sorted[0];
+
+  //? SOLUTION 2 - Return an array and include multiple words if they have the same length
+  //? SOLUTION 3 - Only return an array if multiple words, otherwise return a string
 }
 
 //! CHALLENGE 8: ARRAY CHUNKING
@@ -178,6 +185,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = fizzBuzz();
+const output = longestWord('Hi there, my name is Brad');
 
 console.log(output);
