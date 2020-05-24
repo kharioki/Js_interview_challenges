@@ -151,9 +151,13 @@ function longestWord(sen) {
   // sort by length
   const sorted = wordArr.sort((a, b) => b.length - a.length);
   // return longest word
-  return sorted[0];
+  // return sorted[0];
 
   //? SOLUTION 2 - Return an array and include multiple words if they have the same length
+  const longestWordArr = sorted.filter(
+    word => word.length === sorted[0].length
+  );
+  return longestWordArr;
   //? SOLUTION 3 - Only return an array if multiple words, otherwise return a string
 }
 
@@ -185,6 +189,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord('Hi there, my name is Brad');
+const output = longestWord('Hello, there, my name is Brad');
 
 console.log(output);
