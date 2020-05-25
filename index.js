@@ -214,7 +214,10 @@ function flattenArray(arrays) {
   // return arrays.reduce((a, b) => a.concat(b));
 
   //? Solution 2 - apply method
-  return [].concat.apply([], arrays);
+  // return [].concat.apply([], arrays);
+
+  //? Solution 3 - using spread operator
+  return [].concat(...arrays);
 }
 
 //! CHALLENGE 10: ANAGRAM
