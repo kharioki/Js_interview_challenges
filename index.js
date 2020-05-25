@@ -252,9 +252,29 @@ function formatStr(str) {
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {}
+function letterChanges(str) {
+  // using regex
+  let newStr = str
+    // lowercase everything
+    .toLowerCase()
+    // replace characters
+    .replace(/[a-z]/gi, char => {
+      // if character is 'z' or 'Z' return 'a'
+      if (char === 'z' || char === 'Z') {
+        return 'a';
+      } else {
+        // every character has a character code, so we increse it by 1
+        return String.fromCharCode(char.charCodeAt() + 1);
+      }
+    });
+
+  // uppercase the vowels
+  newStr = newStr.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
+
+  return newStr;
+}
 
 // Call Function
-const output = isAnagram('dormitory', 'dirty room');
+const output = letterChanges('hello there');
 
 console.log(output);
