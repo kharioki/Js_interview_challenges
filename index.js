@@ -211,7 +211,10 @@ function chunkArray(arr, len) {
 
 function flattenArray(arrays) {
   //? Solution 1 - using reduce
-  return arrays.reduce((a, b) => a.concat(b), []);
+  // return arrays.reduce((a, b) => a.concat(b));
+
+  //? Solution 2 - apply method
+  return [].concat.apply([], arrays);
 }
 
 //! CHALLENGE 10: ANAGRAM
