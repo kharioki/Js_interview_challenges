@@ -226,7 +226,8 @@ function flattenArray(arrays) {
 // ex. 'Dormitory' === 'dirty room##'
 
 function isAnagram(str1, str2) {
-  console.log(formatStr(str1));
+  // using the formatStr helper function, compare both strings
+  return formatStr(str1) === formatStr(str2);
 }
 
 // Helper function
@@ -254,6 +255,6 @@ function formatStr(str) {
 function letterChanges(str) {}
 
 // Call Function
-const output = isAnagram('elbow', 'below');
+const output = isAnagram('dormitory', 'dirty room');
 
 console.log(output);
