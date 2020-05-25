@@ -173,19 +173,36 @@ function longestWord(sen) {
 
 function chunkArray(arr, len) {
   //? using while loop
-  const chunkedArr = [];
-  // set index
-  let i = 0;
+  // const chunkedArr = [];
+  // // set index
+  // let i = 0;
 
-  // loop while index is less than array lenngth
-  while (i < arr.length) {
-    // slice out from the index to the index + the chink length and push on to the chunked array
-    chunkedArr.push(arr.slice(i, i + len));
-    // Increment by chunk length
-    i += len;
-  }
+  // // loop while index is less than array lenngth
+  // while (i < arr.length) {
+  //   // slice out from the index to the index + the chink length and push on to the chunked array
+  //   chunkedArr.push(arr.slice(i, i + len));
+  //   // Increment by chunk length
+  //   i += len;
+  // }
   // return chunked array
-  return chunkedArr;
+  // return chunkedArr;
+
+  //? solution 2
+  // init chunked
+  const chunkd = [];
+  // Loop through arr
+  arr.forEach(val => {
+    // Get last element
+    const last = chunkd[chunkd.length - 1];
+    // Checkif last and if last length is equal to the chunk len
+    if (!last || last.length === len) {
+      chunkd.push([val]);
+    } else {
+      last.push(val);
+    }
+  });
+
+  return chunkd;
 }
 
 //! CHALLENGE 9: FLATTEN ARRAY
