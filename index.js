@@ -347,7 +347,18 @@ function seekAndDestroy(arr, ...rest) {
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight() {}
+function sortByHeight(a) {
+  const arr1 = [];
+  const arr2 = [];
+
+  a.forEach((val, i) => (val === -1 ? arr1.push(i) : arr2.push(val)));
+  // sort arr2 ascending
+  const sortArr = arr2.sort((a, b) => a - b);
+  // use array splice to insert tree heights
+  arr1.forEach((x, i) => sortArr.splice(arr1[i], 0, -1));
+
+  return sortArr;
+}
 
 //! CHALLENGE 16: MISSING LETTERS
 // Find the missing letter in the passed letter range and return it. If all letters are present, return undefined
@@ -356,7 +367,20 @@ function sortByHeight() {}
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters() {}
+function missingLetters(str) {
+  let compare = str.charCodeAt(0);
+  let missing;
+
+  str.split('').map((char, i) => {
+    if (str.charCodeAt(i) == compare) {
+      ++compare;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+
+  return missing;
+}
 
 //! CHALLENGE 17: EVEN & ODD SUMS
 // Take in an array and return an array of the sums of even and odd numbers
@@ -366,6 +390,6 @@ function missingLetters() {}
 function evenOddSums() {}
 
 // Call Function
-const output = seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6, 'hello');
+const output = missingLetters('abcdefghjklmno');
 
 console.log(output);
