@@ -290,8 +290,10 @@ function addAll(...numbers) {
 
   //? solution 2 - es6 - ...rest operator and reduce/forEach
   let total = 0;
-  numbers.forEach(num => (total += num));
-  return total;
+  // numbers.forEach(num => (total += num));
+  // return total;
+  // using array reduce
+  return numbers.reduce((a, b) => a + b);
 }
 
 //! CHALLENGE 13: SUM ALL PRIMES
