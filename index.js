@@ -300,7 +300,27 @@ function addAll(...numbers) {
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
 
-function sumAllPrimes() {}
+// helper function
+function checkForPrime(n) {
+  for (let j = 2; j < n; j++) {
+    if (n % j === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function sumAllPrimes(num) {
+  let sum = 0;
+  for (let i = 2; i <= num; i++) {
+    if (checkForPrime(i)) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
 
 //! CHALLENGE 14: SEEK & DESTROY
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
@@ -333,6 +353,6 @@ function missingLetters() {}
 function evenOddSums() {}
 
 // Call Function
-const output = addAll(2, 5, 6, 7);
+const output = sumAllPrimes(5);
 
 console.log(output);
