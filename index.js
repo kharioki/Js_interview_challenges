@@ -278,14 +278,19 @@ function letterChanges(str) {
 // Return a sum of all parameters entered regardless of the amount of numbers - NO ARRAYS
 // ex. addAll(2,5,6,7) === 20
 
-function addAll() {
+function addAll(...numbers) {
   //? solution 1 - es5 arguements object and for loop
-  var args = Array.prototype.slice.call(arguments);
-  var total = 0;
+  // var args = Array.prototype.slice.call(arguments);
+  // var total = 0;
 
-  for (let i = 0; i < args.length; i++) {
-    total += args[i];
-  }
+  // for (let i = 0; i < args.length; i++) {
+  //   total += args[i];
+  // }
+  // return total;
+
+  //? solution 2 - es6 - ...rest operator and reduce/forEach
+  let total = 0;
+  numbers.forEach(num => (total += num));
   return total;
 }
 
